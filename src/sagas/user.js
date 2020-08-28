@@ -5,7 +5,7 @@
 
 import { all, delay, put, takeLatest } from 'redux-saga/effects';
 
-import { ActionTypes } from 'constants/index';
+import { ActionTypes } from '../constants/index';
 
 /**
  * Login

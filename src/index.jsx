@@ -6,9 +6,9 @@ import { PersistGate } from 'redux-persist/lib/integration/react';
 import { HelmetProvider } from 'react-helmet-async';
 
 import { showAlert } from 'actions';
-import { store, persistor } from 'store/index';
+import { store, persistor } from './store/index';
 
-import Loader from 'components/Loader';
+import Loader from 'components/CatLoader';
 import Reload from 'components/Reload';
 
 import App from './App';
@@ -16,7 +16,7 @@ import { register } from './serviceWorker';
 
 ReactDOM.render(
   <Provider store={store}>
-    <PersistGate loading={<Loader size={100} block />} persistor={persistor}>
+    <PersistGate loading={<Loader />} persistor={persistor}>
       <HelmetProvider>
         <App />
       </HelmetProvider>

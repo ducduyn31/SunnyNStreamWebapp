@@ -1,4 +1,4 @@
-import { keyMirror } from 'modules/helpers';
+import { keyMirror } from '../modules/helpers';
 
 /**
  * @namespace Constants
@@ -23,6 +23,15 @@ export const ActionTypes = keyMirror({
   GITHUB_GET_REPOS_FAILURE: undefined,
   SHOW_ALERT: undefined,
   HIDE_ALERT: undefined,
+  HIDE_APP_BAR: undefined,
+  SHOW_APP_BAR: undefined,
+  TRANSPARENT_APP_BAR: undefined,
+  MATERIAL_APP_BAR: undefined,
+  /* Get Started Actions */
+  NEXT_STEP: undefined,
+  PREVIOUS_STEP: undefined,
+  /* Movie Room Actions */
+  TOGGLE_VIDEO_PLAYER: undefined,
 });
 
 /**
@@ -34,5 +43,12 @@ export const STATUS = {
   RUNNING: 'running',
   READY: 'ready',
   SUCCESS: 'success',
+  ERROR: 'error',
+};
+
+export const VIDEO_STATE = {
+  LOADING: 'loading',
+  PLAYING: 'playing',
+  PAUSE: 'pause',
   ERROR: 'error',
 };

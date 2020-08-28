@@ -2,7 +2,7 @@ import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Router, Switch, Route } from 'react-router-dom';
+import { Route, Router, Switch } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import styled, { css, ThemeProvider } from 'styled-components';
 import treeChanges from 'tree-changes';
@@ -13,18 +13,13 @@ import { utils } from 'styled-minimal';
 
 import config from 'config';
 import { showAlert } from 'actions';
-
-import Home from 'routes/Home';
-import Private from 'routes/Private';
 import NotFound from 'routes/NotFound';
-
-import Header from 'components/Header';
 import SystemAlerts from 'components/SystemAlerts';
-
-import Footer from 'components/Footer';
 import GlobalStyles from 'components/GlobalStyles';
 import RoutePublic from 'components/RoutePublic';
-import RoutePrivate from 'components/RoutePrivate';
+import HomePage from './pages/home.page';
+import GetStartedPage from './pages/get-started-pages';
+import MovieRoomPage from './pages/movie-room.page';
 
 const AppWrapper = styled.div`
   display: flex;
@@ -78,24 +73,29 @@ export class App extends React.Component {
               titleTemplate={`%s | ${config.name}`}
               titleAttributes={{ itemprop: 'name', lang: 'pt-br' }}
             />
-            {user.isAuthenticated && <Header dispatch={dispatch} user={user} />}
+            {/*{user.isAuthenticated && <Header dispatch={dispatch} user={user} />}*/}
             <Main isAuthenticated={user.isAuthenticated}>
               <Switch>
                 <RoutePublic
                   isAuthenticated={user.isAuthenticated}
                   path="/"
                   exact
-                  component={Home}
+                  component={HomePage}
                 />
-                <RoutePrivate
+                <RoutePublic
                   isAuthenticated={user.isAuthenticated}
-                  path="/private"
-                  component={Private}
+                  path="/get-started"
+                  component={GetStartedPage}
+                />
+                <RoutePublic
+                  isAuthenticated={user.isAuthenticated}
+                  path="/movie-booth"
+                  component={MovieRoomPage}
                 />
                 <Route component={NotFound} />
               </Switch>
             </Main>
-            <Footer />
+            {/*<Footer />*/}
             <SystemAlerts />
             <GlobalStyles />
           </AppWrapper>

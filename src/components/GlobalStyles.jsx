@@ -1,9 +1,9 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { appColor } from 'modules/theme';
+import { appColor } from '../modules/theme';
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
   *,
   *:before,

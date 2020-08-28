@@ -1,7 +1,7 @@
 import { REHYDRATE } from 'redux-persist/lib/constants';
-import { handleActions } from 'modules/helpers';
+import { handleActions } from '../modules/helpers';
 
-import { ActionTypes } from 'constants/index';
+import { ActionTypes } from '../constants/index';
 
 export const appState = {
   alerts: [],

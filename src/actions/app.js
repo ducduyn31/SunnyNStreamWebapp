@@ -7,9 +7,9 @@
 import uid from 'nanoid';
 import { createActions } from 'redux-actions';
 
-import { ActionTypes } from 'constants/index';
+import { ActionTypes } from '../constants/index';
 
-export { goBack, go, push, replace } from 'modules/history';
+export { goBack, go, push, replace } from '../modules/history';
 
 export const { hideAlert, showAlert, switchMenu } = createActions({
   [ActionTypes.SWITCH_MENU]: (query: string) => ({ query }),

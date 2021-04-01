@@ -1,10 +1,11 @@
-import { handleActions } from 'modules/helpers';
+import { handleActions } from '../modules/helpers';
 
-import { STATUS, ActionTypes } from 'constants/index';
+import { STATUS, ActionTypes } from '../constants/index';
 
 export const userState = {
   isAuthenticated: false,
   status: STATUS.IDLE,
+  lastNickname: '',
 };
 
 export default {
@@ -23,6 +24,9 @@ export default {
       [ActionTypes.USER_LOGOUT_SUCCESS]: draft => {
         draft.isAuthenticated = false;
         draft.status = STATUS.IDLE;
+      },
+      [ActionTypes.USER_SET_NICKNAME]: (draft, { payload }) => {
+        draft.lastNickname = payload.nickname;
       },
     },
     userState,

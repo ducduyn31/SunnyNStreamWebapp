@@ -9,12 +9,16 @@ export const getStartedState = {
     { label: 'auth', description: 'Enter passcode' },
     { label: 'complete', description: 'Enjoy!' },
   ],
+  room: {
+    requestingRoom: '',
+    requestingPw: '',
+  },
 };
 
 export default {
   getStarted: handleActions(
     {
-      [ActionTypes.NEXT_STEP]: draft => {
+      [ActionTypes.NEXT_STEP_SUCCESS]: draft => {
         draft.progress =
           draft.progress < draft.steps.length - 1 ? draft.progress + 1 : draft.progress;
       },

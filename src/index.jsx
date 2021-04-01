@@ -6,13 +6,17 @@ import { PersistGate } from 'redux-persist/lib/integration/react';
 import { HelmetProvider } from 'react-helmet-async';
 
 import { showAlert } from 'actions';
-import { store, persistor } from './store/index';
 
 import Loader from 'components/CatLoader';
 import Reload from 'components/Reload';
+import { store, persistor } from './store/index';
 
 import App from './App';
 import { register } from './serviceWorker';
+import ReactPlayer from 'react-player';
+import CamPlayer from './components/CamPlayer';
+
+ReactPlayer.addCustomPlayer(CamPlayer);
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,13 +1,13 @@
 {
-  "name": "react-redux-saga-boilerplate",
-  "description": "Boilerplate with React and Redux with Redux Saga",
-  "version": "2019.10.0",
-  "author": "Gil Barbara <gilbarbara@gmail.com>",
+  "name": "sunny-n-stream",
+  "description": "Video live streaming application",
+  "version": "2020.08.29.1",
+  "author": "Duy Nguyen <ducduy.ababat@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gilbarbara/react-redux-saga-boilerplate"
+    "url": "https://github.com/ducduyn31/SunnyNStreamWebapp"
   },
-  "bugs": "https://github.com/gilbarbara/react-redux-saga-boilerplate/issues",
+  "bugs": "https://github.com/ducduyn31/SunnyNStreamWebapp/issues",
   "license": "MIT",
   "keywords": [
     "React",
@@ -27,6 +27,7 @@
     "mobile-detect": "^1.4.4",
     "modernizr": "^3.7.1",
     "nanoid": "^2.1.2",
+    "peer": "^0.5.3",
     "polished": "^3.4.1",
     "prop-types": "^15.7.2",
     "qs": "^6.9.0",
@@ -44,6 +45,7 @@
     "redux-actions": "^2.6.5",
     "redux-persist": "^6.0.0",
     "redux-saga": "^1.1.1",
+    "socket.io": "^2.3.0",
     "styled-components": "^4.4.0",
     "styled-minimal": "^0.9.0",
     "tree-changes": "^0.5.1"

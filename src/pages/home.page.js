@@ -4,9 +4,9 @@ import Button from '@material-ui/core/Button';
 import Lottie from 'react-lottie';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import peekabooCat from '../private_assets/lottie-json/peekaboo-cat.json';
 import TextShifter from '../components/TextShifter';
-import { connect } from 'react-redux';
 
 const getCompliment = () => {
   const compliments = [

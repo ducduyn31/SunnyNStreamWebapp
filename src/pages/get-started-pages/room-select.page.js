@@ -8,7 +8,7 @@ class RoomSelectPage extends Component {
   render() {
     const { styles } = this.props;
     return (
-      <React.Fragment>
+      <>
         <Grid container style={styles.fullPageContainer.css} spacing={4}>
           <Grid item>
             <Typography style={styles.roomSelectPage.title.css}>
@@ -24,7 +24,7 @@ class RoomSelectPage extends Component {
             />
           </Grid>
         </Grid>
-      </React.Fragment>
+      </>
     );
   }
 }

@@ -6,10 +6,10 @@ import { connect } from 'react-redux';
 
 class NamePage extends Component {
   render() {
-    const { styles } = this.props;
+    const { styles, nickname, onNickChange } = this.props;
 
     return (
-      <React.Fragment>
+      <>
         <Grid container style={styles.fullPageContainer.css} spacing={4}>
           <Grid item>
             <Typography style={styles.namePage.title.css}>
@@ -18,10 +18,16 @@ class NamePage extends Component {
             </Typography>
           </Grid>
           <Grid item>
-            <TextField label="Your Nickname" variant="outlined" style={styles.namePage.input.css} />
+            <TextField
+              label="Your Nickname"
+              variant="outlined"
+              style={styles.namePage.input.css}
+              defaultValue={nickname}
+              onChange={e => onNickChange(e.target.value)}
+            />
           </Grid>
         </Grid>
-      </React.Fragment>
+      </>
     );
   }
 }

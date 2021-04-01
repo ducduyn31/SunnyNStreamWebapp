@@ -1,7 +1,5 @@
-import { VIDEO_STATE } from '../constants';
+import { VIDEO_STATE, ActionTypes } from '../constants';
 import { handleActions } from '../modules/helpers';
-
-import { ActionTypes } from '../constants';
 
 export const roomState = {
   videoState: VIDEO_STATE.LOADING,

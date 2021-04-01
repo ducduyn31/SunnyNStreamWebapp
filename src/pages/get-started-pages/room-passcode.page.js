@@ -8,7 +8,7 @@ class RoomPasscodePage extends Component {
   render() {
     const { styles } = this.props;
     return (
-      <React.Fragment>
+      <>
         <Grid container style={styles.fullPageContainer.css} spacing={4}>
           <Grid item>
             <Typography style={styles.roomPasscodePage.title.css}> Enter room password </Typography>
@@ -22,7 +22,7 @@ class RoomPasscodePage extends Component {
             />
           </Grid>
         </Grid>
-      </React.Fragment>
+      </>
     );
   }
 }

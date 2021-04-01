@@ -1,6 +1,6 @@
 import React from 'react';
-import lovingTiger from '../private_assets/lottie-json/tail-wagging-cat.json';
 import Lottie from 'react-lottie';
+import lovingTiger from '../private_assets/lottie-json/tail-wagging-cat.json';
 
 const Loader = () => (
   <Lottie

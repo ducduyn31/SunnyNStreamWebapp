@@ -14,7 +14,7 @@ const styles = {
 
 class CompletePage extends Component {
   render() {
-    return <React.Fragment></React.Fragment>;
+    return <></>;
   }
 }
 

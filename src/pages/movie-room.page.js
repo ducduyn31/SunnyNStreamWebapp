@@ -11,14 +11,11 @@ import Forward30Icon from '@material-ui/icons/Forward30';
 import Forward10Icon from '@material-ui/icons/Forward10';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
-import { togglePlayer, previousStep } from '../actions';
 import { VIDEO_STATE } from '../constants';
 
 class MovieRoomPage extends Component {
-  onPlayVideo = () => {
-    const { dispatch } = this.props;
-
-    console.log(actions);
+  subVideoRef = player => {
+    console.log('[Duy] MovieRoom.subVideoRef: %o', player);
   };
 
   render(): React.ReactNode {
@@ -29,9 +26,11 @@ class MovieRoomPage extends Component {
         <Grid item style={styles.mainScreen.css}>
           <div style={styles.mainScreen.wrapper.css}>
             <ReactPlayer
-              url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+              url="http://192.168.0.101:5555/playlist.m3u8"
               width="100%"
               height="100%"
+              playing
+              muted
               style={styles.mainScreen.wrapper.player.css}
             />
           </div>
@@ -39,10 +38,24 @@ class MovieRoomPage extends Component {
         <Grid item style={styles.subScreen.css}>
           <div style={styles.subScreen.wrapper.css}>
             <ReactPlayer
-              url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+              url="self"
               width="100%"
               height="100%"
+              playing
               style={styles.subScreen.wrapper.player.css}
+              ref={this.subVideoRef}
+            />
+          </div>
+        </Grid>
+        <Grid item style={styles.subScreen.css}>
+          <div style={styles.subScreen.wrapper.css}>
+            <ReactPlayer
+              url="self"
+              width="100%"
+              height="100%"
+              playing
+              style={styles.subScreen.wrapper.player.css}
+              ref={this.subVideoRef}
             />
           </div>
         </Grid>

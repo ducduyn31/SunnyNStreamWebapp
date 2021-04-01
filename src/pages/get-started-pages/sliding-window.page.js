@@ -3,16 +3,7 @@ import { connect } from 'react-redux';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
-import {
-  Link,
-  Redirect,
-  Route,
-  Switch,
-  useHistory,
-  useRouteMatch,
-  withRouter,
-} from 'react-router-dom';
-import NamePage from './name.page';
+import { Link, Redirect, Route, Switch, useRouteMatch, withRouter } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import { Button } from '@material-ui/core';
 import Stepper from '@material-ui/core/Stepper';
@@ -20,15 +11,16 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
-import { nextStep, previousStep } from '../../actions';
 import Lottie from 'react-lottie';
+import { previousStep, setNick } from '../../actions';
+import NamePage from './name.page';
 import lovingTiger from '../../private_assets/lottie-json/loving-tiger.json';
 import RoomSelectPage from './room-select.page';
 import RoomPasscodePage from './room-passcode.page';
 import CompletePage from './complete.page';
 
 const HomeButton = props => (
-  <Tooltip title={'Home'}>
+  <Tooltip title="Home">
     <IconButton style={props.styles.homeButton.css}>
       <Link to="/">
         <HomeIcon style={props.styles.homeButton.icon.css} />
@@ -46,7 +38,7 @@ const BackButton = props => {
   };
 
   return (
-    <Tooltip title={'Back'}>
+    <Tooltip title="Back">
       <IconButton onClick={handleGoBack} style={styles.backButton.css} disabled={progress === 0}>
         <Link to={`${match.path}/${progress > 0 ? steps[progress - 1].label : ''}`}>
           <ArrowBackIcon style={styles.backButton.icon.css} />
@@ -60,11 +52,7 @@ const NextStep = props => {
   const { styles, steps, progress, dispatch } = props;
   const match = useRouteMatch();
 
-  const handleNext = () => {
-    dispatch(nextStep());
-  };
-
-  const handleComplete = () => {};
+  const handleNext = () => {};
 
   return (
     <div style={styles.nextStep.css}>
@@ -74,24 +62,13 @@ const NextStep = props => {
           style={styles.nextStep.button.css}
           color="primary"
           disabled={progress === steps.length}
-          onClick={handleNext}
+          onClick={() => handleNext()}
         >
-          <Link
-            to={
-              progress < steps.length - 1 ? `${match.url}/${steps[progress + 1].label}` : match.url
-            }
-          >
-            Next
-          </Link>
+          Next
         </Button>
       ) : (
-        <Button
-          variant="outlined"
-          style={styles.nextStep.button.css}
-          color="primary"
-          onClick={handleComplete}
-        >
-          <Link to={'/movie-booth'}>Complete</Link>
+        <Button variant="outlined" style={styles.nextStep.button.css} color="primary">
+          <Link to="/movie-booth">Complete</Link>
         </Button>
       )}
 
@@ -162,6 +139,7 @@ function mapStatesToProps(state) {
     styles: state.style.getStartedPage,
     steps: state.getStarted.steps,
     progress: state.getStarted.progress,
+    nickname: state.user.lastNickname,
   };
 }
 
